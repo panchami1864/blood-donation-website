@@ -50,6 +50,14 @@
       "email": "kvpanchaminaik@gmail.com",
       "location": "manglore",
       "availability": "Available"
+    },
+    {
+      "name": "anjali",
+      "blood": "O+",
+      "phone": "1234567890",
+      "email": "dgbuh@gmail.com",
+      "location": "honnavar",
+      "availability": "available"
     }
   ],
   "requests": [
