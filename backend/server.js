@@ -18,7 +18,7 @@ const server = http.createServer(function(req, res) {
     // GET donors
     if (req.url === "/donors" && req.method === "GET") {
 
-        let data = fs.readFileSync("backend/data.json");
+        let data = fs.readFileSync("data.json");
 
         res.writeHead(200, {
             "Content-Type": "application/json"
@@ -41,14 +41,14 @@ const server = http.createServer(function(req, res) {
             let newDonor = JSON.parse(body);
 
             let fileData =
-                fs.readFileSync("backend/data.json");
+                fs.readFileSync("data.json");
 
             let data = JSON.parse(fileData);
 
             data.donors.push(newDonor);
 
             fs.writeFileSync(
-                "backend/data.json",
+                "data.json",
                 JSON.stringify(data, null, 2)
             );
 
@@ -76,14 +76,14 @@ else if (req.url === "/requests" && req.method === "POST") {
         let newRequest = JSON.parse(body);
 
         let fileData =
-            fs.readFileSync("backend/data.json");
+            fs.readFileSync("data.json");
 
         let data = JSON.parse(fileData);
 
         data.requests.push(newRequest);
 
         fs.writeFileSync(
-            "backend/data.json",
+            "data.json",
             JSON.stringify(data, null, 2)
         );
 
@@ -100,7 +100,7 @@ else if (req.url === "/requests" && req.method === "POST") {
 // GET emergency requests
 else if (req.url === "/requests" && req.method === "GET") {
 
-    let data = fs.readFileSync("backend/data.json");
+    let data = fs.readFileSync("data.json");
 
     res.writeHead(200, {
         "Content-Type": "application/json"
@@ -125,7 +125,7 @@ else if (req.url.startsWith("/requests/") && req.method === "PUT") {
 
         let update = JSON.parse(body);
 
-        let fileData = fs.readFileSync("backend/data.json");
+        let fileData = fs.readFileSync("data.json");
         let data = JSON.parse(fileData);
 
         let found = false;
@@ -142,7 +142,7 @@ else if (req.url.startsWith("/requests/") && req.method === "PUT") {
         if (found) {
 
             fs.writeFileSync(
-                "backend/data.json",
+                "data.json",
                 JSON.stringify(data, null, 2)
             );
 
@@ -182,7 +182,7 @@ else if (req.url.startsWith("/donors/") && req.method === "PUT") {
 
         let update = JSON.parse(body);
 
-        let fileData = fs.readFileSync("backend/data.json");
+        let fileData = fs.readFileSync("data.json");
         let data = JSON.parse(fileData);
 
         let found = false;
@@ -205,7 +205,7 @@ else if (req.url.startsWith("/donors/") && req.method === "PUT") {
         if (found) {
 
             fs.writeFileSync(
-                "backend/data.json",
+                "data.json",
                 JSON.stringify(data, null, 2)
             );
 
